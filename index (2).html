@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Мухьаммад-Эмин — Front-end-разработчик. Создаю адаптивные сайты для малого бизнеса, кафе, ресторанов и частных проектов.">
+  <meta name="theme-color" content="#101310">
+  <title>Мухьаммад-Эмин — Front-end-разработчик</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2397f28a'/%3E%3Ctext x='50%25' y='55%25' font-size='29' text-anchor='middle' fill='%23101310' font-family='Arial' font-weight='700'%3EME%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{--bg:#101310;--panel:#171b17;--panel2:#1d231d;--text:#f3f5f0;--muted:#a5afa3;--line:rgba(255,255,255,.1);--accent:#a7f58f;--accent-dark:#203c25;--radius:24px;--max:1160px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 78% 12%,rgba(99,155,78,.13),transparent 34%),radial-gradient(ellipse at 0% 55%,rgba(74,115,66,.08),transparent 30%)}
+    a{color:inherit;text-decoration:none}
+    button,a{-webkit-tap-highlight-color:transparent}
+    button{font:inherit}
+    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(16,19,16,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:750;letter-spacing:-.04em;white-space:nowrap}
+    .brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--accent);color:#11180f;font-size:13px;font-weight:900;letter-spacing:-.06em}
+    .brand-name{font-size:15px}
+    .nav-links{display:flex;align-items:center;gap:27px;color:#c3cbc0;font-size:13px}
+    .nav-links a{transition:color .2s}
+    .nav-links a:hover,.nav-links a:focus-visible{color:var(--accent)}
+    .nav-cta{padding:11px 16px;border:1px solid rgba(167,245,143,.42);border-radius:999px;color:var(--accent);font-size:13px;font-weight:700;white-space:nowrap}
+    .menu-toggle{display:none;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:12px;width:44px;height:44px;cursor:pointer}
+    .hero{padding:88px 0 84px;min-height:650px;display:flex;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:64px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--accent);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.13em}
+    .eyebrow:before{content:"";width:23px;height:1px;background:var(--accent)}
+    h1,h2,h3,p{margin-top:0}
+    h1{font-size:clamp(42px,5.3vw,70px);line-height:1.04;letter-spacing:-.065em;margin:20px 0 23px;max-width:740px}
+    .highlight{color:var(--accent)}
+    .hero-copy{max-width:610px;color:#b8c0b5;font-size:17px;line-height:1.8;margin-bottom:30px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:49px;padding:13px 19px;border-radius:13px;font-size:14px;font-weight:750;border:1px solid transparent;transition:transform .2s,background .2s,border-color .2s;cursor:pointer}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--accent);color:#142012}
+    .btn-primary:hover{background:#b9ffa5}
+    .btn-secondary{border-color:var(--line);background:rgba(255,255,255,.025);color:var(--text)}
+    .btn-secondary:hover{border-color:rgba(167,245,143,.5)}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:20px;margin-top:32px;color:var(--muted);font-size:12px}
+    .hero-meta span{display:flex;align-items:center;gap:8px}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block}
+    .visual{position:relative;min-height:430px;display:grid;place-items:center}
+    .visual-glow{position:absolute;width:310px;height:310px;border-radius:50%;background:rgba(136,205,112,.13);filter:blur(50px)}
+    .code-window{position:relative;width:min(100%,420px);border:1px solid rgba(255,255,255,.14);border-radius:22px;background:linear-gradient(145deg,rgba(35,42,34,.96),rgba(18,22,18,.97));box-shadow:0 30px 90px rgba(0,0,0,.32);transform:rotate(2deg);overflow:hidden}
+    .window-top{height:48px;display:flex;align-items:center;gap:7px;padding:0 17px;border-bottom:1px solid var(--line);color:#849181;font-size:11px}
+    .window-dot{width:7px;height:7px;border-radius:50%;background:#61705c}
+    .window-label{margin-left:auto}
+    .code-content{padding:25px 24px 28px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;line-height:2.05;color:#b9c8b3}
+    .code-line{display:block;white-space:nowrap}
+    .indent{padding-left:22px}.indent2{padding-left:44px}
+    .syntax-green{color:#b2f69a}.syntax-blue{color:#9acbff}.syntax-orange{color:#f5c58c}.syntax-muted{color:#70806b}
+    .floating-card{position:absolute;right:-7px;bottom:27px;padding:15px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(26,32,25,.92);box-shadow:0 16px 40px #0003}
+    .floating-card strong{display:block;font-size:13px}.floating-card span{font-size:11px;color:var(--muted)}
+    .section{padding:90px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:37px}
+    .section-kicker{color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;margin-bottom:12px}
+    h2{font-size:clamp(31px,4vw,48px);line-height:1.12;letter-spacing:-.055em;margin-bottom:0}
+    .section-desc{max-width:450px;color:var(--muted);font-size:14px;margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr .8fr;gap:60px;align-items:start}
+    .about-text{color:#b8c0b5;font-size:16px;line-height:1.9;max-width:650px}
+    .about-text strong{color:var(--text);font-weight:650}
+    .tech-panel{padding:26px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(145deg,#1a2019,#141714)}
+    .tech-panel h3{font-size:15px;margin-bottom:18px}
+    .tag-list{display:flex;flex-wrap:wrap;gap:9px}
+    .tag{padding:8px 12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);border-radius:9px;font-size:12px;color:#dce4d7}
+    .tag.primary{color:var(--accent);border-color:rgba(167,245,143,.25);background:rgba(167,245,143,.055)}
+    .tag-label{color:#849080;font-size:11px;margin:22px 0 10px}
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .service-card{min-height:260px;padding:24px 21px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(150deg,rgba(29,35,28,.9),rgba(20,23,20,.8));display:flex;flex-direction:column;transition:transform .22s,border-color .22s}
+    .service-card:hover{transform:translateY(-5px);border-color:rgba(167,245,143,.35)}
+    .service-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:rgba(167,245,143,.09);color:var(--accent);font-size:21px;margin-bottom:24px}
+    .service-card h3{font-size:17px;line-height:1.35;letter-spacing:-.025em;margin-bottom:10px}
+    .service-card p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+    .text-link{margin-top:auto;display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-size:12px;font-weight:750;width:max-content}
+    .text-link span{transition:transform .2s}.text-link:hover span{transform:translateX(4px)}
+    .portfolio-section{background:linear-gradient(180deg,transparent,rgba(255,255,255,.018),transparent)}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project-card{overflow:hidden;border:1px solid var(--line);border-radius:22px;background:#171b17;transition:transform .22s,border-color .22s}
+    .project-card:hover{transform:translateY(-4px);border-color:rgba(167,245,143,.32)}
+    .project-preview{height:205px;position:relative;overflow:hidden;padding:20px;background:#20291f}
+    .preview-one{background:linear-gradient(135deg,#321b18,#a2472e)}
+    .preview-two{background:linear-gradient(135deg,#1c2832,#405b69)}
+    .preview-three{background:linear-gradient(135deg,#28221a,#74613c)}
+    .browser{position:absolute;inset:22px 22px -22px;border:1px solid rgba(255,255,255,.22);border-radius:10px 10px 0 0;background:rgba(16,19,16,.86);box-shadow:0 12px 30px #0004;transform:rotate(-2deg);overflow:hidden}
+    .browser-bar{height:20px;background:rgba(255,255,255,.08);display:flex;align-items:center;gap:4px;padding:0 8px}
+    .browser-bar i{width:4px;height:4px;border-radius:50%;background:#b2b9af}
+    .mock-content{padding:19px 17px}
+    .mock-title{font-size:18px;font-weight:850;letter-spacing:-.06em;color:#f6f3e9}
+    .mock-sub{font-size:7px;color:#b8bdb3;margin-top:5px}
+    .mock-lines{display:flex;gap:6px;margin-top:16px}.mock-lines b{height:5px;width:45px;border-radius:4px;background:rgba(255,255,255,.35)}.mock-lines b:first-child{background:#b2ed8d}
+    .preview-caption{position:absolute;bottom:13px;left:17px;color:rgba(255,255,255,.76);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+    .project-body{padding:22px}
+    .project-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:11px}
+    .project-top h3{font-size:18px;letter-spacing:-.03em;margin:0}
+    .project-type{font-size:10px;padding:5px 8px;border:1px solid var(--line);border-radius:7px;color:#aab5a5;white-space:nowrap}
+    .project-body p{font-size:13px;color:var(--muted);min-height:44px;margin-bottom:20px}
+    .project-actions{display:flex;gap:9px;flex-wrap:wrap}
+    .small-btn{font-size:11px;font-weight:750;padding:10px 12px;border-radius:9px;border:1px solid var(--line);transition:all .2s}
+    .small-btn:hover{border-color:rgba(167,245,143,.4);color:var(--accent)}
+    .small-btn.primary{background:var(--accent);color:#142012;border-color:var(--accent)}
+    .small-btn.primary:hover{background:#b9ffa5}
+    .github-row{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:24px;padding:21px 23px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025)}
+    .github-row strong{display:block;font-size:14px}.github-row span{font-size:12px;color:var(--muted)}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+    .step{position:relative;padding:24px 20px;border-top:1px solid rgba(167,245,143,.42);background:linear-gradient(180deg,rgba(167,245,143,.045),transparent 75%)}
+    .step-number{display:block;font-size:12px;color:var(--accent);font-weight:850;letter-spacing:.08em;margin-bottom:24px}
+    .step h3{font-size:16px;margin-bottom:9px}.step p{font-size:13px;color:var(--muted);margin-bottom:0}
+    .cta-panel{position:relative;overflow:hidden;padding:55px;border:1px solid rgba(167,245,143,.25);border-radius:30px;background:radial-gradient(ellipse at 90% 10%,rgba(167,245,143,.13),transparent 40%),linear-gradient(135deg,#1d261c,#141814)}
+    .cta-panel:after{content:"</>";position:absolute;right:30px;bottom:-43px;font-family:monospace;font-size:180px;font-weight:900;letter-spacing:-.12em;color:rgba(167,245,143,.045);pointer-events:none}
+    .cta-panel h2{max-width:650px;margin-bottom:17px}.cta-panel p{max-width:590px;color:var(--muted);margin-bottom:25px}
+    .contacts-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px}
+    .contact-copy{color:var(--muted);max-width:430px}
+    .contact-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .contact-item{padding:18px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025);min-width:0}
+    .contact-item span{display:block;font-size:11px;color:#8e9a89;margin-bottom:7px}
+    .contact-item strong,.contact-item a{font-size:13px;overflow-wrap:anywhere}
+    .contact-item a:hover{color:var(--accent)}
+    footer{border-top:1px solid var(--line);padding:27px 0}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}.footer-links a:hover{color:var(--accent)}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    @media(max-width:1000px){.hero-grid{gap:30px}.services-grid{grid-template-columns:repeat(2,1fr)}.portfolio-grid{grid-template-columns:repeat(2,1fr)}.project-card:last-child{grid-column:span 2}.project-card:last-child .project-preview{height:190px}.nav-links{gap:16px}.nav-cta{display:none}}
+    @media(max-width:760px){.container{width:min(100% - 32px,var(--max))}.nav{min-height:68px}.menu-toggle{display:grid;place-items:center}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:18px 22px 22px;background:rgba(16,19,16,.98);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06)}.nav-links a:last-child{border-bottom:0}.hero{padding:65px 0 50px;min-height:unset}.hero-grid{grid-template-columns:1fr;gap:20px}.hero-copy{font-size:15px}.visual{min-height:330px;margin-top:8px}.code-window{max-width:390px}.floating-card{right:0;bottom:7px}.section{padding:66px 0}.section-head{align-items:start;flex-direction:column;gap:15px;margin-bottom:27px}.about-grid{grid-template-columns:1fr;gap:27px}.portfolio-grid{grid-template-columns:1fr}.project-card:last-child{grid-column:auto}.project-preview,.project-card:last-child .project-preview{height:200px}.steps{grid-template-columns:1fr 1fr;gap:10px}.step{padding:20px 15px}.cta-panel{padding:34px 25px}.cta-panel:after{font-size:125px;right:12px}.contacts-grid{grid-template-columns:1fr;gap:25px}.footer-inner{align-items:flex-start;flex-direction:column}.github-row{align-items:flex-start;flex-direction:column}}
+    @media(max-width:430px){.container{width:calc(100% - 28px)}h1{font-size:42px}.actions .btn{width:100%}.hero-meta{gap:12px;flex-direction:column}.visual{min-height:300px}.code-content{padding:20px 14px;font-size:11px}.floating-card{right:-2px;padding:11px 13px}.services-grid{grid-template-columns:1fr}.service-card{min-height:unset}.steps{grid-template-columns:1fr}.step-number{margin-bottom:12px}.contact-list{grid-template-columns:1fr}.cta-panel{padding:29px 20px}.project-body{padding:19px}.project-top{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Мухьаммад-Эмин — на главную"><span class="brand-mark">ME</span><span class="brand-name">Мухьаммад-Эмин</span></a>
+      <nav class="nav-links" id="navLinks" aria-label="Основная навигация">
+        <a href="#home">Главная</a><a href="#about">Обо мне</a><a href="#services">Услуги</a><a href="#portfolio">Портфолио</a><a href="#contacts">Контакты</a>
+      </nav>
+      <a class="nav-cta" href="https://wa.me/79954552554?text=%D0%90%D1%81%D1%81%D0%B0%D0%BB%D0%B0%D0%BC%D1%83%20%D0%B0%D0%BB%D0%B5%D0%B9%D0%BA%D1%83%D0%BC%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0." target="_blank" rel="noopener noreferrer">Обсудить проект ↗</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="navLinks"><span aria-hidden="true">☰</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Front-end-разработчик</div>
+          <h1>Создаю сайты, которые <span class="highlight">представляют ваш бизнес</span> в интернете.</h1>
+          <p class="hero-copy">Разрабатываю современные адаптивные сайты для малого бизнеса, кафе, ресторанов и частных проектов — с понятной структурой и вниманием к деталям.</p>
+          <div class="actions">
+            <a class="btn btn-primary wa-link" data-message="Ассаламу алейкум! Я заинтересован в разработке сайта. Хотел бы обсудить детали проекта и стоимость." href="#">Обсудить проект <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-secondary" href="#portfolio">Мои работы <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-meta"><span><i class="dot"></i> Урус-Мартан, Чеченская Республика</span><span><i class="dot"></i> Удалённое сотрудничество</span></div>
+        </div>
+        <div class="visual reveal" aria-label="Декоративная иллюстрация кода">
+          <div class="visual-glow"></div>
+          <div class="code-window">
+            <div class="window-top"><i class="window-dot"></i><i class="window-dot"></i><i class="window-dot"></i><span class="window-label">your-website.html</span></div>
+            <div class="code-content">
+              <span class="code-line"><span class="syntax-muted">&lt;!-- идея → сайт --&gt;</span></span>
+              <span class="code-line"><span class="syntax-blue">&lt;section</span> <span class="syntax-orange">class</span>=<span class="syntax-green">"your-business"</span><span class="syntax-blue">&gt;</span></span>
+              <span class="code-line indent"><span class="syntax-blue">&lt;h1&gt;</span>Ваша идея<span class="syntax-blue">&lt;/h1&gt;</span></span>
+              <span class="code-line indent"><span class="syntax-blue">&lt;p&gt;</span>Понятно. Красиво. Удобно.<span class="syntax-blue">&lt;/p&gt;</span></span>
+              <span class="code-line indent"><span class="syntax-blue">&lt;button</span> <span class="syntax-orange">type</span>=<span class="syntax-green">"button"</span><span class="syntax-blue">&gt;</span></span>
+              <span class="code-line indent2"><span class="syntax-green">Обсудить проект</span></span>
+              <span class="code-line indent"><span class="syntax-blue">&lt;/button&gt;</span></span>
+              <span class="code-line"><span class="syntax-blue">&lt;/section&gt;</span></span>
+              <span class="code-line syntax-muted">// Готов к работе ↗</span>
+            </div>
+          </div>
+          <div class="floating-card"><strong>От идеи к интерфейсу</strong><span>HTML · CSS · JavaScript</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="section-kicker">01 / Обо мне</div><h2>Давайте создадим<br>ваш сайт.</h2></div><p class="section-desc">Работаю над тем, чтобы ваш проект выглядел достойно и был удобен для посетителей.</p></div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>Я <strong>Front-end-разработчик</strong> с опытом самостоятельной разработки сайтов около 1–2 лет. Создаю сайты с нуля и адаптирую их под разные устройства.</p>
+            <p>Мне важно, чтобы сайт не только выглядел современно, но и был удобным для посетителей. Работаю напрямую с заказчиками, обсуждаю задачи и стремлюсь подобрать решение под конкретный проект.</p>
+            <p>Открыт к удалённому сотрудничеству, в том числе с предпринимателями и компаниями из Чеченской Республики.</p>
+            <a class="text-link wa-link" data-message="Ассаламу алейкум! Хочу обсудить свой проект и подходящее решение." href="#">Обсудить вашу задачу <span>→</span></a>
+          </div>
+          <div class="tech-panel reveal">
+            <h3>Инструменты, с которыми работаю</h3>
+            <div class="tag-list"><span class="tag primary">HTML5</span><span class="tag primary">CSS3</span><span class="tag primary">JavaScript</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Figma — базовый уровень</span></div>
+            <div class="tag-label">Дополнительные знания</div>
+            <div class="tag-list"><span class="tag">Python</span><span class="tag">Java</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="section-kicker">02 / Услуги</div><h2>Чем могу помочь</h2></div><p class="section-desc">Подберём формат под вашу задачу. Состав работ, сроки и стоимость обсуждаются до начала разработки.</p></div>
+        <div class="services-grid">
+          <article class="service-card reveal"><div class="service-icon" aria-hidden="true">↗</div><h3>Лендинги</h3><p>Одностраничные сайты для презентации бизнеса, услуг или конкретного предложения.</p><a class="text-link wa-link" data-message="Ассаламу алейкум! Хочу обсудить создание лендинга. Подскажите, пожалуйста, возможный подход и стоимость." href="#">Обсудить услугу <span>→</span></a></article>
+          <article class="service-card reveal"><div class="service-icon" aria-hidden="true">▣</div><h3>Сайты-визитки</h3><p>Компактные сайты для специалистов, предпринимателей и небольших компаний.</p><a class="text-link wa-link" data-message="Ассаламу алейкум! Хочу обсудить создание сайта-визитки. Подскажите, пожалуйста, возможный подход и стоимость." href="#">Обсудить услугу <span>→</span></a></article>
+          <article class="service-card reveal"><div class="service-icon" aria-hidden="true">⌂</div><h3>Сайты для кафе и ресторанов</h3><p>Страницы с информацией о заведении, меню, контактах, адресе и других важных сведениях.</p><a class="text-link wa-link" data-message="Ассаламу алейкум! Хочу обсудить сайт для кафе или ресторана. Подскажите, пожалуйста, возможный подход и стоимость." href="#">Обсудить услугу <span>→</span></a></article>
+          <article class="service-card reveal"><div class="service-icon" aria-hidden="true">▤</div><h3>Адаптивная вёрстка</h3><p>Интерфейсы, которые корректно отображаются на смартфонах, планшетах и компьютерах.</p><a class="text-link wa-link" data-message="Ассаламу алейкум! Хочу обсудить адаптивную вёрстку сайта. Подскажите, пожалуйста, возможный подход и стоимость." href="#">Обсудить услугу <span>→</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section portfolio-section" id="portfolio">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="section-kicker">03 / Портфолио</div><h2>Проекты в работе</h2></div><p class="section-desc">Здесь собраны реальные ссылки на мои проекты. Превью карточек — авторские визуальные заглушки, а не скриншоты сайтов.</p></div>
+        <div class="portfolio-grid">
+          <article class="project-card reveal">
+            <div class="project-preview preview-one" aria-label="Декоративное превью проекта Ненан Хингалш"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i></div><div class="mock-content"><div class="mock-title">Ненан Хингалш</div><div class="mock-sub">Национальная кухня · домашний вкус</div><div class="mock-lines"><b></b><b></b><b></b></div></div></div><span class="preview-caption">Авторская визуальная заглушка</span></div>
+            <div class="project-body"><div class="project-top"><h3>Ненан Хингалш</h3><span class="project-type">Для бизнеса</span></div><p>Сайт заведения национальной кухни.</p><div class="project-actions"><a class="small-btn primary" href="https://mogomedus.github.io/Nenan-khingalsh/" target="_blank" rel="noopener noreferrer">Посмотреть сайт ↗</a></div></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-preview preview-two" aria-label="Декоративное превью практического проекта"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i></div><div class="mock-content"><div class="mock-title">Практический проект</div><div class="mock-sub">Практика веб-разработки</div><div class="mock-lines"><b></b><b></b><b></b></div></div></div><span class="preview-caption">Авторская визуальная заглушка</span></div>
+            <div class="project-body"><div class="project-top"><h3>Практический проект</h3><span class="project-type">Практика</span></div><p>Проект, созданный для самостоятельной практики веб-разработки.</p><div class="project-actions"><a class="small-btn primary" href="https://mogomedus.github.io/testing/" target="_blank" rel="noopener noreferrer">Посмотреть сайт ↗</a></div></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-preview preview-three" aria-label="Декоративное превью учебного проекта"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i></div><div class="mock-content"><div class="mock-title">Учебный проект</div><div class="mock-sub">Учебная работа</div><div class="mock-lines"><b></b><b></b><b></b></div></div></div><span class="preview-caption">Авторская визуальная заглушка</span></div>
+            <div class="project-body"><div class="project-top"><h3>Учебный проект</h3><span class="project-type">Учебный</span></div><p>Учебная работа для развития навыков веб-разработки.</p><div class="project-actions"><a class="small-btn primary" href="https://mogomedus.github.io/Wipusk/" target="_blank" rel="noopener noreferrer">Посмотреть сайт ↗</a></div></div>
+          </article>
+        </div>
+        <div class="github-row reveal"><div><strong>Исходный код на GitHub</strong><span>Открытый репозиторий проекта</span></div><a class="btn btn-secondary" href="https://github.com/Mogomedus/testing" target="_blank" rel="noopener noreferrer">Посмотреть код на GitHub ↗</a></div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="section-kicker">04 / Процесс</div><h2>Как будем работать</h2></div><p class="section-desc">Понятные шаги помогают заранее согласовать ожидания и избежать недопонимания.</p></div>
+        <div class="steps">
+          <article class="step reveal"><span class="step-number">ШАГ 01</span><h3>Обсуждение проекта</h3><p>Вы рассказываете о задаче, целях и том, для кого нужен сайт.</p></article>
+          <article class="step reveal"><span class="step-number">ШАГ 02</span><h3>Требования и оценка</h3><p>Согласуем состав работ, сроки и стоимость до начала разработки.</p></article>
+          <article class="step reveal"><span class="step-number">ШАГ 03</span><h3>Разработка</h3><p>Создаю интерфейс с учётом согласованных требований и адаптивности.</p></article>
+          <article class="step reveal"><span class="step-number">ШАГ 04</span><h3>Проверка и передача</h3><p>Проверяем результат и договариваемся о способе передачи готового проекта.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-panel reveal"><div class="section-kicker">Обсудим вашу идею</div><h2>Есть идея для сайта?<br><span class="highlight">Давайте обсудим.</span></h2><p>Расскажите о своём проекте — обсудим задачу, подходящее решение и стоимость разработки.</p><a class="btn btn-primary wa-link" data-message="Ассаламу алейкум! Я заинтересован в разработке сайта. Хотел бы обсудить детали проекта и стоимость." href="#">Написать в WhatsApp <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="container">
+        <div class="section-head reveal"><div><div class="section-kicker">05 / Контакты</div><h2>Будем на связи</h2></div></div>
+        <div class="contacts-grid">
+          <div class="reveal"><p class="contact-copy">Основной способ связи — WhatsApp. Напишите пару слов о своей задаче, и мы сможем обсудить дальнейшие шаги.</p><a class="btn btn-primary wa-link" data-message="Ассаламу алейкум! Хочу обсудить разработку сайта." href="#">Связаться в WhatsApp ↗</a></div>
+          <div class="contact-list reveal">
+            <div class="contact-item"><span>Имя</span><strong>Мухьаммад-Эмин</strong></div>
+            <div class="contact-item"><span>Местоположение</span><strong>Урус-Мартан, Чеченская Республика</strong></div>
+            <div class="contact-item"><span>Телефон / WhatsApp</span><strong><a href="tel:+79954552554">+7 (995) 455-25-54</a></strong></div>
+            <div class="contact-item"><span>Формат работы</span><strong>Удалённо</strong></div>
+            <div class="contact-item"><span>Языки общения</span><strong>Русский и чеченский</strong></div>
+            <div class="contact-item"><span>GitHub</span><strong><a href="https://github.com/Mogomedus/testing" target="_blank" rel="noopener noreferrer">Mogomedus/testing ↗</a></strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><strong style="color:var(--text)">Мухьаммад-Эмин</strong> · Front-end-разработчик<br><span>Создаю адаптивные сайты для бизнеса и частных проектов.</span></div>
+      <nav class="footer-links" aria-label="Ссылки в подвале"><a href="#about">Обо мне</a><a href="#services">Услуги</a><a href="#portfolio">Портфолио</a><a href="https://github.com/Mogomedus/testing" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="wa-link" data-message="Ассаламу алейкум! Хочу обсудить разработку сайта." href="#">WhatsApp ↗</a></nav>
+      <div>© <span id="year"></span> Мухьаммад-Эмин</div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const phone = '79954552554';
+      const nav = document.getElementById('navLinks');
+      const toggle = document.getElementById('menuToggle');
+
+      document.querySelectorAll('.wa-link').forEach(link => {
+        const message = link.dataset.message || 'Ассаламу алейкум! Хочу обсудить разработку сайта.';
+        link.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      });
+
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+        toggle.innerHTML = isOpen ? '<span aria-hidden="true">✕</span>' : '<span aria-hidden="true">☰</span>';
+      });
+
+      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Открыть меню');
+        toggle.innerHTML = '<span aria-hidden="true">☰</span>';
+      }));
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const revealItems = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealItems.forEach(item => observer.observe(item));
+      } else {
+        revealItems.forEach(item => item.classList.add('visible'));
+      }
+    })();
+  </script>
+</body>
+</html>
